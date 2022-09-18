@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            width: 30%;
+            height: 340px;
+            border: 2px solid grey;
+            margin-top: 10%;
+        }
+        h2{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        button{
+            margin-top: 10px;
+            margin-left: 100px;
+            width: 100px;
+        }
+
+    </style>
+    </head>
+    <body>
+    <div class="container bg bg-secondary">
+        <form action="/check" method="GET">
+            <h2 align="center">Sign in</h2>
+            <div class="container-fluid form-group">
+                <div class="col-xs-6">
+                <label>Email id:</label>
+                <div class="input-group">
+                    <input type="email" class="form-control " name="email" placeholder="abc@gmail.com" required>
+                </div><br>
+                <label>Password</label>
+                <div class="input-group"> 
+                        <input type="password" class="form-control" name="password" placeholder="password" required>
+                 </div><br>
+                 <button class="btn btn-info" >submit</button>
+                 <p style="color:white">Create an Account<a href={{url_for('signup')}}><b style="color:red">click here.</b></a></p>
+            </div>
+            </div>
+        </form>
+    </div>
+
+    </body>
+</html>
