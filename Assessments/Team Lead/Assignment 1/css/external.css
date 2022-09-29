@@ -1,0 +1,74 @@
+body{
+    background: url("giphy.gif");
+}
+.container-outer{
+    margin-top: 5px;
+    display: flex;
+    background-color: #a6a4a2;
+    height: 40vh;
+    justify-content: center;
+    border-radius: 2em;
+}
+
+.image{
+    align-items: center;
+    margin: 20px;
+
+}
+
+.img{
+    border:5px solid black;
+}
+
+.container-outer:hover{
+    opacity: 0.8;
+}
+
+.container{
+    display: flex;
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.container:hover{
+    opacity: 0.8;
+}
+.main{
+padding: 20px;
+width: 150vw;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: stretch;
+flex-direction: column;
+}
+
+.about{
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+
+.skills{
+    justify-content: flex-end;
+}
+
+.about-inside{
+    width:30em;
+}
+.language{
+    padding-left: 140px;
+    width: 50%;
+}
+.bullet{
+    list-style:circle;
+    padding: 10px;
+}
+.social-media{
+    text-align:center;    
+    margin-top: 10px;
+}
