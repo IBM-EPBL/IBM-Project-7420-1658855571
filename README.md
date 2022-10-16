@@ -1,4 +1,4 @@
-# Smart Fashion Recommender System 💻:
+# Smart Fashion Recommender Application 💻:
 
 A Smart Application that recommend fashion Products based on the user preferences with the aid of chatbot support.
 
