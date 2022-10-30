@@ -1,6 +1,6 @@
 # Smart Fashion Recommender Application 💻:
 
-A Smart Application that can recommend fashion Products based upon the customer preferences with the aid of chatbot.
+A Smart Application that can recommend fashion Products based upon the customer preferences with the aid of chat-bot.
 
 # Links ♨️:
 
