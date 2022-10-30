@@ -1,6 +1,6 @@
 # Smart Fashion Recommender Application 💻:
 
-A Smart Application that recommend fashion Products based on the user preferences with the aid of chatbot support.
+A Smart Application that can recommend fashion Products based upon the customer preferences with the aid of chat-bot.
 
 # Links ♨️:
 
@@ -19,3 +19,6 @@ A Smart Application that recommend fashion Products based on the user preference
  2. Team Member 1 - Selvakumar R 🤓
  3. Team Member 2 - Thirumurugan M 🤠
  4. Team Member 3 - Santhoshkumar R 😃
+
+# For any queries 🎊:
+  contact: v.sivan777vss@gmail.com 😎
