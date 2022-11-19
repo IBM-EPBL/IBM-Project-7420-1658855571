@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Your Details</title>
+
+{% endblock %}
+
+{% block body %}
+<body style="background:#2e2e1f" >
+  <div class="header col-lg-12 col-xl-12" style="background:#5c5c3d">
+    <div class="row">
+        <div class="text-start m-0  text-light col-xl-12">
+        <h5 class="my-2" style="text-align:center;font-family:cursive;">User details<img src="{{ url_for('static', filename='/images/favicon.ico') }}"  class="p-3" height="70px" width="70px" alt="delivery"></h5>
+        </div>
+        </div>
+    </div>
+    <div class="container my-5">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category,message in messages %}
+          {% if category == 'error' %}
+          <div class="alert alert-danger alert-dismissible fade show" style="border:2px solid #2e2e1f;background-color:white" role="alert">
+              <center><strong style="color:#2e2e1f">{{message}}</strong><center> 
+              <button type="button" style="background-color:white" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <form method="post">
+    <div class="row p-3 mr-3 bg-light">
+      <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+        <h7 class="text-center text-light mt-1" style="font-weight:600;">Customer ID</h7>
+        </div>
+       
+       <div class="col-lg-6 text-center">
+           <input type="number" value="{{sno}}" name="new" style="padding:4px;color:white;background-color:black;max-height:2.4em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" disabled required >
+         </div>
+          <span class="py-2"></span>
+          <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+        <h7 class="text-center text-light" style="font-weight:600;">Full name</h7>
+        </div>
+       <div class="col-lg-6 text-center">
+           <input type="text" value="{{username}}" name="name" class="ch"  style="padding:4px;color:white;background-color:black;max-height:2.4em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" required disabled >
+         </div>
+          <span class="py-2"></span>
+          <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+            <h7 class="text-center text-light" style="font-weight:600;">Email address</h7>
+            </div>
+            <div class="col-lg-6 text-center">
+               <input type="email"  name="email" value="{{email}}"  class="ch" style="padding:4px;color:white;background-color:black;max-height:2.4em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" required disabled >
+            </div>
+              <span class="py-2"></span>
+              <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+                <h7 class="text-center text-light" pattern="[0-9]{10}" autocomplete="off" style="font-weight:600;">Mobile number</h7>
+                </div>
+                <div class="col-lg-6 text-center">
+                   <input type="tel" value="{{ mobile }}" class="ch" name="mobile"  style="padding:4px;color:white;background-color:black;max-height:2.4em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" required disabled >
+                </div>
+                  <span class="py-2"></span>
+                  <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+                    <h7 class="text-center text-light"  style="font-weight:600;">Delivery address</h7>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                      <input type="text" value="{{ address }}" class="ch" name="delivery" style="padding:4px;color:white;background-color:black;max-height:2.3em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" required disabled >
+                    </div>
+                    <span class="py-2"></span>
+                    <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+                      <h7 class="text-center text-light"  style="font-weight:600;">City</h7>
+                      </div>
+                      <div class="col-lg-6 text-center">
+                        <input type="text" value="{{ city }}" class="ch" name="city" style="padding:4px;color:white;background-color:black;max-height:2.3em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" required disabled >
+                      </div>
+                      <span class="py-2"></span>
+                      <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+                        <h7 class="text-center text-light"  style="font-weight:600;">State</h7>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                          <input type="text" value="{{ state }}" class="ch" name="state" style="padding:4px;color:white;background-color:black;max-height:2.3em;border:none;border:2px solid black;border-radius: 5px;width:25vw;" required disabled >
+                        </div>
+                      <span class="py-2"></span>
+                      <div class="text-center col-lg-6 ml-2 bg-secondary" style="border-radius:3px;border:2px solid grey;max-height:3em">
+                        <h7 class="text-center text-light" style="font-weight:600;">Pincode</h7>
+                        </div>
+                        <div class="col-lg-6 text-center" >
+                           <input type="text" value="{{ pincode }}" class="ch" name="pin"   style="padding:4px;max-height:2.4em;border:none;border:2px solid black;border-radius: 5px;width:25vw;color:white;background-color:black;" required disabled>
+                        </div>
+                        
+        <span class="py-2"></span>
+          <div class="col-lg-12 text-center" >
+            <p class="btn" style="margin-top:14px;background-color:#2e2e1f;color:white"  onclick="var i = document.getElementsByClassName('ch');for(var j=0;j<7;j++){
+              i[j].disabled = false;i[j].style='background-color:white'}">Change</p>
+            <input type="submit" value="Save" class="btn text-light"  onclick="var i = document.getElementsByClassName('ch');for(var j=0;j<7;j++){
+              i[j].disabled = false;}" style="width:100px;color:black;background:#2e2e1f">
+              
+</div> 
+{% if buy == 'True' %}
+  <div class="col-lg-12">
+    <center><a href="{{ url_for('payment.paymentready',username=username,product_name=product_name,product_image=product_image,price=price,email=email,mobile=mobile,sno=sno) }}" class="btn btn-lg bg-secondary">Continue</a></center>
+  </div>
+{% endif %}
+{% endblock %}
+</body>

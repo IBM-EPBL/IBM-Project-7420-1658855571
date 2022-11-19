@@ -1,0 +1,20 @@
+dsn_hostname = "<HOSTNAME>"
+dsn_uid = "<UID>"
+dsn_pwd = "<PASSWORD>"
+dsn_driver = "{IBM DB2 ODBC DRIVER}"
+dsn_database = "BLUDB"
+dsn_port = "32286"
+dsn_protocol = "TCPIP"
+dsn_security = "SSL"
+dsn_SSLServerCertificate="DigiCertGlobalRootCA.crt"
+
+dsn = (
+    "DRIVER={0};"
+    "DATABASE={1};"
+    "HOSTNAME={2};"
+    "PORT={3};"
+    "PROTOCOL={4};"
+    "SSLSERVERCERTIFICATE={5};"
+    "USERNAME={6};"
+    "PASSWORD={7};"
+    "SECURITY={8};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_SSLServerCertificate, dsn_uid, dsn_pwd,dsn_security)

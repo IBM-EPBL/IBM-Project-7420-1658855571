@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Payment</title>
+<style>
+
+</style>
+{% endblock %}
+
+{% block body %}
+<body>
+<div class="header col-lg-12 col-xl-12" style="background:#5c5c3d">
+    <div class="row">
+        <div class="text-start m-0  text-light col-xl-12">
+        <h5 class="my-2" style="text-align:center;font-family:cursive;">Payment<img src="{{ url_for('static', filename='/images/favicon.ico') }}"  class="p-3" height="70px" width="70px" alt="delivery"></h5>
+        </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row">
+<div class="col-lg-12">
+    <center><caption><strong>Verify the Below details</strong></caption></center>
+    <table>
+       
+        <tr>
+          <th>Mobile number</th>
+          <th>Product name</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>{{ mobile }}</td>
+          <td>{{ product_name }}</td>
+          <td>{{ price }}</td>
+        </tr>
+      </table>
+</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+             <center> <button id="rzp-button1" class="btn btn-lg text-light bg-secondary">Pay</button> </center>
+            </div>
+              </div>
+              <hr>
+              <div class="container">
+                <div class="row text-center">
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light mb-0" style="background-color:#5c5c3d;font-family:cursive">Titan</p>
+                      <img class="card-img-top" style="width:100%;" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/photo5.jpg" alt="Card image cap">
+                      <a href="{{ url_for('product.individual',username=msg,email=email,mobile=mobile,sno=sno,product_name='NP1773SL01 Analog Watch - For Men',company_name='Titan',logo='titan.png',product_image='photo5.jpg',price='1555',date=date,location='chennai',rating="4",f1="90%",f2="70%",f3="60%",f4="50%",f5="30%")}}" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light mb-0"  style="background-color:#5c5c3d;font-family:cursive">Men Dress</p>
+                      <img class="card-img-top" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/clothmain.jpg" alt="Card image cap">
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light text-center mb-0"  style="background-color:#5c5c3d;font-family:cursive">Foot Wear</p>
+                      <img class="card-img-top" style="width:100%;height:50%;vertical-align: middle;" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/shoes7.jpg" alt="Card image cap">
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light text-center mb-0"  style="background-color:#5c5c3d;font-family:cursive">Women Dress</p>
+                      <img class="card-img-top" src="{{ url_for('static', filename='/images/cloth/clothmain2.jpg') }}" alt="Card image cap">
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                  </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light text-center mb-0" style="background-color:#5c5c3d;font-family:cursive">Accessories</p>
+                      <img class="card-img-top" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/chain.jpg" alt="Card image cap">
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light text-center mb-0" style="background-color:#5c5c3d;font-family:cursive">Shoes</p>
+                      <img class="card-img-top" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/shoes11.jpg" alt="Card image cap">
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light text-center mb-0" style="background-color:#5c5c3d;font-family:cursive">Saree</p>
+                      <img class="card-img-top" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/cloth6.jpg" alt="Card image cap">
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                  <div class="my-2 pb-1 pb-md-0 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <div class="card p-1" style="background:white">
+                      <p class="text-light text-center mb-0" style="background-color:#5c5c3d;font-family:cursive">Watches</p>
+                      <img class="card-img-top" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/photo6.jpg" alt="Card image cap">
+                      
+                      <a href="" class="btn btn-sm" style="background-color:#2e2e1f;color:white">Shop</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+              <footer class="text-center col-lg-12" style="background:#5c5c3d">
+                  <div class="container col-lg-12" style="background:#5c5c3d">
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="text-light">Copyright © Emart. All rights reserved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+            
+                
+                  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                  <script>
+                  var options = {
+                      "key": "rzp_live_we9MUvHoL6Hrdk", // Enter the Key ID generated from the Dashboard
+                      "amount": "{{ price }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                      "currency": "INR",
+                      "name": "{{ product_name }}",
+                      "description": "Emart",
+                      "image": "{{ url_for('static', filename='/images/favicon.ico') }}",
+                      "order_id": "{{ payment_details['id'] }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                      "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+                      "handler": function (response){
+                        alert(response.razorpay_payment_id);
+                        alert(response.razorpay_order_id);
+                        alert(response.razorpay_signature)
+                    },
+                      "prefill": {
+                          "name": "{{ username }}",
+                          "email": "{{ email }}",
+                          "contact": "{{ mobile }}"
+                      },
+                      "notes": {
+                          "address": "Emart Co-operation"
+                      },
+                      "theme": {
+                          "color": "#5c5c3d"
+                      }
+                  };
+                  var rzp1 = new Razorpay(options);
+                  rzp1.on('payment.failed', function (response){
+                          alert(response.error.code);
+                          alert(response.error.description);
+                          alert(response.error.source);
+                          alert(response.error.step);
+                          alert(response.error.reason);
+                          alert(response.error.metadata.order_id);
+                          alert(response.error.metadata.payment_id);
+                  });
+                  document.getElementById('rzp-button1').onclick = function(e){
+                      rzp1.open();
+                      e.preventDefault();
+                  }
+        </script>
+    </body>
+{% endblock %}

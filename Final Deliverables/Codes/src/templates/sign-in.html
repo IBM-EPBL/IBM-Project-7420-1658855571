@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>login to enjoy!</title>
+<style type="text/css">
+  .ms {
+    font-size: 4vw 4vh;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    background: linear-gradient(to right, #a2a276,  #1e1e15);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fade 1s ease-in infinite;
+    pointer-events: none;
+}
+
+@keyframes fade {
+    75% {
+        text-shadow: 1px 1px 0px #e0f2f1;
+    }
+}
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+{% endblock %}
+
+	{% block body %}
+	<body style="background-color: #5c5c3d">
+    
+    <div class="header" style="margin-top:5px;display:flex;flex-direction:column;justify-content: center;flex-wrap:wrap">
+      <div class="in" style="display:flex;flex-direction:row;align-items: center;justify-content:center;gap:1.5%;">
+          <img src="{{ url_for('static', filename='/images/logo.png') }}" alt="Emart" height="45px" weight="45px">
+          <h3 class="ms my-0"><strong>E<em>mart</em></strong></h3>
+      </div>
+       
+    </div>
+	<div class="container" id="container" style="margin-top:30px; padding: 5px; ">
+		<div class="row container">
+			<div class="container col-md-9" style="background-color:white; padding-top: 20PX; border-radius: 10px; padding-right: 20px; padding-left: 20px;">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category,message in messages %}
+          {% if category == 'error' %}
+          <div class="alert alert-dismissible fade show" style="background-color:#2e2e1f;color:white" role="alert">
+              <center><strong>{{message}}</strong><center> 
+              <button type="button" class="btn-close" style="background-color: #5c5c3d" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+      {% endfor %}
+      {% endif%}
+      {% endwith %}
+      <div>
+            <h4 class="page-item my-2 " style="color:#2e2e1f">Sign in</h4>
+            
+        </div>
+	<form method="POST">
+			<div class="form-group">
+              <div style="margin-top: 20px;">
+              <label for="email" style="font-size:1.0rem; color: #2e2e1f;" ><strong>Email or Mobile number</strong></label>
+            <input type="text" name="email" style="font-size:0.9rem ;font-weight:500" class="form-control form-control-xl a-form-label" minlength="6" maxlength="25" required></div>
+      </div>
+			<div style="margin-top:20px;">
+				<label style="font-size:1.0rem;color: #2e2e1f;" ><strong>Password</strong></label>
+			  <input type="password" style="font-size:0.9rem;font-weight:500" id="password" name="password" class="form-control form-control-xl" minlength="8" required>     
+       <div><i onclick="if(document.getElementById('password').type=='password'){ 
+          document.getElementById('i').className='bi bi-eye-fill'
+          document.getElementById('password').type='text'
+        }
+          else{
+            document.getElementById('i').className='bi bi-eye-slash-fill'
+            document.getElementById('password').type='password' 
+          }" id="i" class="img bi bi-eye-slash-fill"></i><h7 style="color:#2e2e1f" class="p-2 mt-2">Show password</h7></div>
+      </div>
+			
+			<div style="margin-top:20px;">
+				<button class="btn btn-dark form-control form-control-xl" style="font-weight:500;background-color:#2e2e1f;text-transform:capitalize"><strong>Continue</strong></button>
+			</div>
+			<div class="row">
+            <center><hr style="height: 3px;background: #5c5c3d;margin: 20px 0;box-shadow: 0px 0px 4px 2px rgba(204,204,204,1);">
+               <h7 style="font-weight:500;color:#2e2e1f">
+                    Forget your password? <a href="{{url_for('auth.forget')}}" style="color: #2e2e1f"> Click here </a></h7></br>
+                    <h7 style="font-weight:500;color:#2e2e1f">Create an account? <a href="{{url_for('auth.signup')}}" style="color: #2e2e1f"> Sign up ✨</a></h7>
+            </center>
+          </div>
+          </div>
+      </div>      
+		</form>
+	</div >
+	</body>	
+  <script>
+  </script>
+{% endblock %}

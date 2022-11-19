@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Emart - Registration</title>
+<style type="text/css">
+    #container {
+        padding: 20px;
+        padding-top:5px;
+        padding-bottom:5px;
+        background-color: white;
+        margin-top: 6px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: 0.5px solid #9A9A9A;
+        position: relative;
+        max-width: 28em;
+    }
+
+    .msi {
+        font-size: 5vw 5vh;
+        font-weight: 600;
+        font-family: cursive;
+        background: linear-gradient(to right, white,  #b7b795);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .ms {
+        font-size: 4vw 4vh;
+        font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+        background: linear-gradient(to right, #a2a276,  #1e1e15);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fade 1s ease-in infinite;
+        pointer-events: none;
+    }
+    
+    @keyframes fade {
+        75% {
+            text-shadow: 1px 1px 0px #e0f2f1;
+        }
+    }
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+{% endblock%}
+
+{% block body%}
+<body style="background-color: #5c5c3d">
+<div class="container">
+    <div class="header" style="display:flex;flex-direction:column;justify-content: center;flex-wrap:wrap">
+        <div class="in" style="display:flex;flex-direction:row;align-items: center;justify-content:center;gap:1.5%;">
+            <img src="{{ url_for('static', filename='/images/logo.png') }}" alt="Emart" height="45px" weight="45px">
+            <h3 class="ms my-0"><strong>E<em>mart</em></strong></h3>
+        </div>
+        <h6 class="msi my-2 pb-1 text-center" style="color:#a2a276">
+            The joy of dressing is an art</h6>
+    </div>
+
+    <div class="container col-md-6 border-3" id="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category,message in messages %}
+          {% if category == 'error' %}
+          <div class="alert alert-dismissible fade show" style="background-color:#2e2e1f;color:white" role="alert">
+              <center><strong>{{message}}</strong><center> 
+              <button type="button" class="btn-close" style="background-color: #5c5c3d" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+      {% endfor %}
+      {% endif%}
+      {% endwith %}
+        <div class="creater" style="display:flex;flex-direction:row;align-items:center;flex-wrap:wrap">
+            <h6 class="page-item mb-3" style="flex:1; font-weight:400;font-size:1.8rem;color:#2e2e1f">Create account</h6>
+            <a class="btn-floating btn-md pulse" style="background-color:#2e2e1f"><i  class="material-icons">edit</i></a>
+        </div>
+        <form method="POST">
+            <div class="mar">
+                <div class="form-group">
+                    <div style="margin-top: 0px;">
+                        <label for="name" style="font-size:1em;color:#2e2e1f"><strong>Your name</strong></label>
+                        <input type="text" name="name" placeholder="First and last name"
+                        id="name" class="form-control form-control-md a-form-label my-0" style="height:40px;font-size:0.9rem;font-weight:600"
+                            minlength="4" maxlength="25">
+                    </div>
+                </div>
+                <div style="margin-top: 5px;">
+                    <div class="form-group">
+                        <label for="phone_number" style="font-size:1rem;color:#2e2e1f"><strong>Moblie
+                                number</strong></label>
+                        <div style="height:30px;display:flex;flex-direction: row;align-content: center;padding-top: 0px;"><p
+                                style="margin-right:5px;font-weight:10px;margin-top:6px;color:white;text-align: center;width:70px;height:30px;padding:5px;background:linear-gradient(to bottom,#2e2e1f,#2e2e1f)">IN
+                                    +91</p>
+                            <input type="tel" class="form-control form-control-md" style="font-size:0.9rem;font-weight:600"
+                                id="phone_number" name="phone_number" placeholder=" Mobile number" pattern="[0-9]{10}" maxlength="10"
+                                autocomplete="off" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div style="margin-top: 20px;padding-top: 0px;">
+                        <label for="email" style="font-size:1rem;color:#2e2e1f"><strong>Email</strong></label>
+                        <input type="email" name="email" style="height:40px;font-size:0.9rem;font-weight:600;padding-top: 0px;"
+                            placeholder="Email address" class="form-control form-control-md a-form-label my-0" minlength="6"
+                            maxlength="25" required>
+                    </div>
+                </div>
+               <div style='margin-top:5px'>
+                <label for="password" style="font-size:1rem;color:#2e2e1f"><strong>Password</strong></label>
+                <input type="password" style="height:30px;font-size:0.9rem;font-weight:600" name="password"
+                   id="password" class="form-control form-control-xl" minlength="8" required>
+                   <div><i onclick="if(document.getElementById('password').type=='password'){ 
+                    document.getElementById('i').className='bi bi-eye-fill'
+                    document.getElementById('password').type='text'
+                  }
+                    else{
+                      document.getElementById('i').className='bi bi-eye-slash-fill'
+                      document.getElementById('password').type='password' 
+                    }" id="i" style="color:#5c5c3d;" class="img bi bi-eye-slash-fill"></i><h7 style="color:#5c5c3d" class="p-2 mt-2">Show password<h7></div>
+            </div>
+                <div style="margin-top: 5px;">
+                    <label for="password" style="color:#5c5c3d;font-size:1rem;color:#2e2e1f"><strong>Re-enter password</strong></label>
+                    <input type="password" style="height:30px;font-size:0.9rem;font-weight:600" name="cpassword"
+                       id="password" class="form-control form-control-xl" minlength="8" required>
+                    <p style="font-size:0.8rem;color:#5c5c3d" class="my-0">By enrolling your mobile phone number, you consent to receive automate
+                        security notifications via text message from Emart. Message and data rates may apply.</p>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button style="text-transform: unset !important;font-weight:600;background-color:#2e2e1f"
+                        class="btn text-light form-control form-control-xl">Continue</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <center><hr style="height: 5px;background: #2e2e1f;margin: 5px 0;box-shadow: 0px 0px 4px 2px rgba(204,204,204,1);">
+                <h7 style="font-weight:600;font-size: 3vw 3vh" class="my-0">
+                    Already have an account? <a href="{{url_for('auth.signin')}}" style="color:#2e2e1f"> Sign in ✨</a> </h7>
+            </center>
+        </div>
+    </div>
+</div>
+</body>
+{%endblock%}

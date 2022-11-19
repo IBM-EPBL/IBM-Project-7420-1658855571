@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Your Details</title>
+
+{% endblock %}
+
+{% block body %}
+<body>
+<div class="header col-lg-12 col-xl-12" style="background:#31506D;">
+    <div class="row">
+        <div class="text-start m-0  text-light col-xl-12">
+        <h4 class="my-2" style="font-family:cursive;">Orders & Returns<img src="{{ url_for('static', filename='/images/favicon.ico') }}"  class="p-3" height="70px" width="70px" alt="delivery"></h4>
+        </div>
+        </div>
+    </div>
+    <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-12  text-center" style="border:3px solid black;border-radius:5px;">
+        <h3>Your Orders<i class="bi bi-cart-check-fill"></i></h3>
+      </div>
+    </div>
+</div>
+    <div class="container bg-dark">
+    <div class="row px-0 py-1" style="border:2px solid black">
+        <div class="col-lg-12 p-5  text-start bg-light">
+            <h5>Currently Empty:)</h5>
+        </div>
+    </div>
+</div>
+    <footer class="text-center col-lg-12" style="background-color: #31506D;">
+        <div class="container col-xl-12" style="background-color: #31506D;">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-light">Copyright © Emart. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </body>
+{% endblock %}

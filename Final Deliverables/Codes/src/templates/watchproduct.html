@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .checked{
+      color: orange;
+    }
+    .popover{
+      width: 450px;
+    }
+  </style>
+</head>
+    <body style="background-color:whitesmoke">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:	#5c5c3d">
+        <div class="container">
+          <center><a class="navbar-brand" href="#">
+              <div class="in"
+                style="display:flex;flex-direction:row;align-items: center;justify-content:flex-start;gap:1.5%;">
+                <img src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/logo.png" alt="Emart" height="30px" weight="30px">
+                <h2 class="ms my-1 ml-1"><strong>E</strong><em>mart</em></h2>
+                <img src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/heart.gif" alt="Emart" height="56px" weight="70px">
+              </div>
+            </a></center>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse my-1" id="navbarSupportedContent">
+            <ul class="navbar-nav col-lg-6 offset-lg-0" style="order:2">
+              <li class="nav-item ml-2">
+                <center><img src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/delivery.gif" alt="gif" height="50px" width="60px"></center>
+              </li>
+              <div class="text-light mx-4 my-1" style="font-size:13px;font-family: cursive;">
+                <center>
+                  <p class="my-1 text-light">Deliver to</p>
+                  <p><i class="bi bi-geo-alt-fill"></i>&nbsp;India</p>
+                </center>
+              </div>
+              <li class="my-1">
+                  {% if not msg: %}
+                <a tabindex="10" 
+                role="button" 
+                data-html="true" 
+                data-toggle="popover" 
+                data-trigger="click"
+                data-placement="bottom"
+                data-content="<div class='text-center'><a href='{{url_for('auth.signin')}}' class='mb-1 btn btn-md btn-warning  top-0 start-100' style='padding-left:10px;' >Sign in</a></div>
+              </br>
+              <p>New customer?<a href='{{url_for('auth.signup')}}' class='text-decoration-none'>Start here</a>
+              </p>"> <center><h7 style="color:white;font-weight:450"><i style="color:white;font-size:1.2rem" class="bi bi-person-circle"></i><br />Hello, Login</h7></center></a>
+                  {% else %}
+                  <center>
+                    <a tabindex="8" 
+                    role="button" 
+                    data-html="true" 
+                    data-toggle="popover" 
+                    data-trigger="click"
+                    data-placement="bottom"
+                    data-content="<div class='text-center'><h6>{{ msg }}</h6></div><div class='container px-0 py-0'>
+                  <a href='{{ url_for("details.open",username=msg,email=email,mobile=mobile,sno=sno)}}' class='btn p-2 btn-warning btn-sm px-1 py-1 text-decoration-none'>Account Details</a></br></br>
+                  <a href='{{ url_for("home.returns",mobile=mobile)}}' class='btn p-2 btn-warning btn-sm px-1 py-1 text-decoration-none'>Orders & Return</a></br></br>
+                  <a href='{{ url_for("auth.logout")}}' class='btn p-2 btn-warning btn-sm px-4 py-1 text-decoration-none'>&nbsp; Log out &nbsp;</a></br></br></div>
+                  "> <center><h7 style="color:white;font-weight:450"><i style="color:white;font-size:1.2rem" class="bi bi-person-circle"></i><br />{{ msg }}</h7></center></a>
+                  </center>
+                </li>
+                <li class="mx-4">
+                  <a href='{{url_for("cart.box",mobile=mobile)}}' style="color:white;text-decoration: none;font-family: cursive">
+                    <center>
+                      <h5><i style="color:white;font-size:1.4rem" class="bi bi-cart3"></i></h5>
+                      <p>Cart</p>
+                    </center>
+                  </a>
+                </li>
+                  {% endif %}
+         
+            </ul>
+            <form class="form-inline col-lg-6 offset-lg-1">
+              <input class="form-control col-lg" style="background-color:#DFDCE3;border-radius:10px 0px 0px 10px" type="search" placeholder="Search"
+                aria-label="Search">
+              <button class="btn btn-light my-2 my-sm-0 mx-0" style="background-color:#2e2e1f;border-radius:0px 10px 10px 0px" type="submit"><i
+                  class="text-light bi bi-search"></i></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+        <div class="container-fluid">
+        <div class="row">
+                 <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3  bg-whitesmoke">
+                    <div class="container mt-2">   
+                        <div>
+                            <h4>Category</h4>
+                            <ul style="display:block;"> 
+                                <li  ><a href="" class="text-decoration-none text-dark">Men's Watches</a></li>
+                                <li><a href="" class="text-decoration-none text-dark">Men's wirst Watches</a></li>
+                                <li><a href="" class="text-decoration-none text-dark">Men's Fashion Smartwatches</a></li>
+                                <li><a href="" class="text-decoration-none text-dark">Smart Watches</a></li>
+                                <li><a href="" class="text-decoration-none text-dark">Women's Watches</a></li>
+                                <li><a href="" class="text-decoration-none text-dark">Women's Wrist Watches</a></li>
+                                <li><a href="" class="text-decoration-none text-dark">women's Fashion Smartwatches</a></li>
+                                
+                            </ul>
+                         </div><br>
+                         <div>
+                            <h4>price</h4>
+                                <ul>
+                                    <li><a href="" class="text-decoration-none text-dark">Under ₹2,000</a></li>
+                                    <li><a href="" class="text-decoration-none text-dark">₹2,000-₹5,000</a></li>
+                                    <li><a href="" class="text-decoration-none text-dark">₹5,000-₹1,0000</a></li>
+                                    <li><a href="" class="text-decoration-none text-dark">₹1,0000-₹20,000</a></li>
+                                    <li><a href="" class="text-decoration-none text-dark">Over ₹20,000</a></li>
+                                </ul>
+                         </div>
+                                    
+                        
+                         <div class="py-2">
+                            <h4>colour</h4>
+                            <a href=""><button class="btn btn-success btn-md mb-1" ></button></a>
+                            <a href=""><button class="btn btn-dark btn-md mb-1 " ></button></a>
+                            <a href=""><button class="btn btn-primary btn-md mb-1" ></button></a>
+                            <a href=""><button class="btn btn-light btn-outline-success btn-md mb-1" ></button></a>
+                            <a href=""><button class="btn btn-danger btn-md mb-1"></button></a>
+                            <a href=""><button class="btn btn-info btn-md mb-1" ></button></a>
+                            <a href=""><button class="btn btn-secondary btn-md mb-1" ></button></a>
+                            <a href=""><button class="btn btn-warning btn-md mb-1" ></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:orange;"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color: rgb(95, 4, 4);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(26, 38, 211);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(102, 127, 57);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(231, 30, 238);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(202, 246, 100);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(164, 163, 160);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(97, 60, 116);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(245, 177, 177);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(31, 31, 79);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(18, 96, 33);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(83, 41, 71);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(82, 77, 68);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgba(25, 17, 129, 0.119);"></button></a>
+                            <a href=""><button class="btn  btn-md mb-1" style="background-color:rgb(50, 232, 223);"></button></a>
+                         
+                        </div>
+                        <div>
+                            <h4>Discount</h4>
+                           
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="" id="" value="checkedValue" checked>
+                                10% Off or more
+                              </label>
+                            </div>
+                            <div class="form-check">
+                                <a>
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="" id="" value="checkedValue" checked>
+                                20% Off or more
+                              </label></a>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="" id="" value="checkedValue" checked>
+                                30% Off or more
+                              </label>
+                            </div>
+                        </div>
+                    </div>			
+			</div>
+                <div class="col-xl-10 col-lg-9 col-md-9 col-sm-9 bg-whitesmoke">
+                  <div class="mt-3 px-2">
+                    <h4>RESULTS</h4>
+                    <p>Price and other details may vary based on product size and color.</p>
+                  </div>
+					<div class="container">
+    				<div class="row ">
+					<div class="col-xl-3 col-lg-4 col-md-4 col-6 col-sm-6 mb-3">>
+              <div class="card">
+               
+              <img alt="products" src="https://homeimage.s3.au-syd.cloud-object-storage.appdomain.cloud/photo5.jpg" height="300px" >
+              <a class="text-decoration-none text-dark" href="{{ url_for('product.individual',company_name="Titan",username=msg,email=email,mobile=mobile,sno=sno,product_name='Titan Metal Mechanicals Analog Black Dial Mens Watch-90140QM02',logo='titan.png',product_image='photo5.jpg',price='1555',date='November',location='chennai',rating='4',f1='90%',f2='70%',f3='60%',f4='50%',f5='30%')}}" >
+                             <div class="card-body">
+                                    <h5 class="card-title text-center" >Titan</h5><h6 class="text-center">Titan Metal Mechanicals Analog Black Dial Men's Watch-90140QM02 </h6>
+                                   
+                                      <p class="card-text text-center" style="font-weight:500">₹1555<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹2500</span></p>
+                                  
+                                <p class="text-center">17% Offer</p>
+                              </div>  </a>
+                           </div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-4 col-6 offset-sm-0 col-sm-6">
+					<div class="card">
+                              <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch2.jpg" height="300px" >
+                             <div class="card-body">
+                                 <h5 class="card-title text-center" >Citizen</h5>
+                                <h6 class="card-title text-center">Citizen Analog Blue Dial WomenMen Watch-BM7334-58L</h6>
+                                    <a class="text-decoration-none text-dark" href="">
+                                      <p class="card-text text-center" style="font-weight:500">₹17,205<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹18,500</span></p>
+                                    </a>
+                                <p class="text-center">7% Offer</p>
+                              </div>
+						
+                           </div>
+							
+                        </div>
+						<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+					<div class="card">
+                              <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch3.jpg" height="300px" >
+                             <div class="card-body">
+                                <h5 class="card-title text-center" >Garmin</h5>
+                                <h6 class="card-title text-center py-2" >Garmin Venu Square - Metallic Orchid Smartwatch</h6>
+                                    <a class="text-decoration-none text-dark" href="">
+                                      <p class="card-text text-center" style="font-weight:500">₹16,400<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹20,000</span></p>
+                                    </a>
+                                 <p class="text-center">18% Offer</p>
+                              </div>
+                           </div>
+							
+						</div>
+                   <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+					<div class="card">
+                              <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch4.jpg" height="300px" >
+                             <div class="card-body">
+                              <h5 class="card-title text-center" >Fossil</h5>
+                                <h6 class="card-title text-center py-2" >Fossil Analog Black Dial Men's Watch-FS5308</h6>
+                                    <a class="text-decoration-none text-dark" href="">
+                                      <p class="card-text text-center" style="font-weight:500">₹10,775<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹10,995</span></p>
+                                    </a>
+                                <p class="text-center">2% Offer</p>
+                              </div>
+                           </div>
+                  
+		
+			</div>
+      <div class="col-xl-3 col-lg-4 col-md-4 col-6 col-sm-6">
+      <div class="card">
+                          <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch5.jpg" height="300px" >
+                         <div class="card-body">
+                          <h5 class="card-title text-center" >Casio</h5>
+                                 <h6 class="card-title text-center">Casio G-Shock Analog-Digital Black Dial Men's Watch-GG-1000-1A3DR (G662)</h6>
+                                <a class="text-decoration-none text-dark" href="">
+                                  <p class="card-text text-center" style="font-weight:500">₹13,296<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹17,495</span></p>
+                                </a>
+                            <p class="text-center">21% Offer</p>
+                          </div>
+                       </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-4 col-6 offset-sm-0 col-sm-6">
+      <div class="card">
+                          <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch7.jpg" height="300px" >
+                         <div class="card-body">
+                          <h5 class="card-title text-center" >Citizen</h5>
+                                <h6 class="card-title text-center">CITIZEN Analog Grey Dial Men's Watch-CA4500-24H</h6>
+                                <a class="text-decoration-none text-dark" href="">
+                                  <p class="card-text text-center" style="font-weight:500">₹22,100<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹26,000</span></p>
+                                </a>
+                            <p class="text-center">15% Offer</p>
+                          </div>
+        
+                       </div>
+          
+                    </div>
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+      <div class="card">
+                          <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch8.jpg" height="300px" >
+                         <div class="card-body">
+                          <h5 class="card-title text-center" >Fossil</h5>
+                          <h6 class="card-title text-center">Fossil Gen 6 Smartwatch with AMOLED Screen, Snapdragon 4100+ Wear Platform</h6>
+                                <a class="text-decoration-none text-dark" href="">
+                                  <p class="card-text text-center" style="font-weight:500">₹23,745<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹24,995</span></p>
+                                </a>
+                                <p class="text-center">5% Offer</p>
+                          </div>
+                       </div>
+          
+        </div>
+               <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+      <div class="card">
+                          <img alt="products" src="https://project-watches.s3.au-syd.cloud-object-storage.appdomain.cloud/watch6.jpg" height="300px" >
+                         <div class="card-body">
+                          <h5 class="card-title text-center" >Seiko</h5>
+                                <h6 class="card-title text-center">Seiko Analog White Dial Men's Watch-SPC246P1</h6>
+                                <a class="text-decoration-none text-dark" href="">
+                                  <p class="card-text text-center" style="font-weight:500">₹27,000<span style="margin-left:5px;font-weight:400;text-decoration:line-through ; color:gray;" class="text-center">₹30,000</span></p>
+                                </a>
+                            <p class="text-center">10% Offer</p>
+                          </div>
+                       </div>
+              
+
+  </div>
+		</div>
+		</div>
+			</div>
+		</div>
+    </body>
+   
+</html>
