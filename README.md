@@ -22,16 +22,16 @@ https://www.youtube.com/watch?v=pGuhca746O8
 
 # Batch 🎊: 
 
- <strong> B5-5M1E </strong>
+<strong> B5-5M1E </strong>
 
 # Team members 🎊:
- 1. Team Leader   - Santhoshsivan V 😎
- 2. Team Member 1 - Selvakumar R 🤓
- 3. Team Member 2 - Thirumurugan M 🤠
- 4. Team Member 3 - Santhoshkumar R 😃
+1. Team Leader   - Santhoshsivan V 😎
+2. Team Member 1 - Selvakumar R 🤓
+3. Team Member 2 - Thirumurugan M 🤠
+4. Team Member 3 - Santhoshkumar R 😃
 
 # For any queries 🎊:
-  contact: v.sivan777vss@gmail.com 😎
+<strong>Contact:</strong> v.sivan777vss@gmail.com 😎
 
 # Finally 🎊:
 ![image](https://selva-ibmproject.s3.jp-tok.cloud-object-storage.appdomain.cloud/getty_469566889_105923.jpg)
